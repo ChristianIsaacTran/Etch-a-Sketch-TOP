@@ -18,8 +18,10 @@ function createGrid(size) {
             const newDiv = document.createElement("div");
             newDiv.className = "grid";
             newDiv.addEventListener("mouseover", function () {
-                newDiv.style.backgroundColor = "grey";
-            });
+                //newDiv.style.backgroundColor = "grey";
+                //Extra credit:
+                newDiv.style.backgroundColor = randomColor();
+            }, {once: true});
 
             newDiv.style.width = `${newGridSize}px`;
             newDiv.style.height = `${newGridSize}px`;
@@ -29,6 +31,15 @@ function createGrid(size) {
         }
     }
     console.log("GRID CREATED");
+}
+
+function randomColor() {
+    let r = Math.floor(Math.random() * 256);
+    let g = Math.floor(Math.random() * 256);
+    let b = Math.floor(Math.random() * 256);
+
+    
+    return `rgb(${r},${g},${b})`;
 }
 
 function removeGrid() {
@@ -41,7 +52,7 @@ function removeGrid() {
 function createNewGrid() {
     inputSize = prompt("Please enter in the square grid size: ", "16");
 
-    if(inputSize > 100 || inputSize < 1){
+    if (inputSize > 100 || inputSize < 1) {
         alert("Invalid size given.");
         return;
     }
