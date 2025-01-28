@@ -50,7 +50,7 @@ function removeGrid() {
 }
 
 function createNewGrid() {
-    inputSize = prompt("Please enter in the square grid size: ", "16");
+    inputSize = prompt("Please enter the square grid size between 1-100: ", "16");
 
     if (inputSize > 100 || inputSize < 1) {
         alert("Invalid size given.");
